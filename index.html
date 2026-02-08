@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Task Manager</h1>
+        <p>Plan your day and stay focused.</p>
+      </header>
+
+      <section class="task-entry" aria-label="Create task">
+        <form id="taskForm">
+          <input id="taskInput" type="text" placeholder="Add a new task..." maxlength="120" required />
+          <button type="submit">Add Task</button>
+        </form>
+      </section>
+
+      <section class="controls" aria-label="Task controls">
+        <div class="filters" role="tablist" aria-label="Task filters">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-filter="active" role="tab" aria-selected="false">Active</button>
+          <button class="filter-btn" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+        </div>
+        <button id="clearCompleted" class="ghost-btn" type="button">Clear Completed</button>
+      </section>
+
+      <section>
+        <ul id="taskList" class="task-list" aria-live="polite"></ul>
+      </section>
+
+      <footer>
+        <p id="taskCount">0 tasks left</p>
+      </footer>
+    </main>
+
+    <template id="taskTemplate">
+      <li class="task-item">
+        <label>
+          <input class="toggle" type="checkbox" />
+          <span class="task-text"></span>
+        </label>
+        <button class="delete-btn" type="button" aria-label="Delete task">✕</button>
+      </li>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
